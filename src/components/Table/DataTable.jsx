@@ -100,8 +100,13 @@ const DataTable = () => {
 
   const handleUpdate = async () => {
     try {
-      const result = await axios.put(`http://localhost:3000/posts/${updatePost.id}`, updatePost);
-      const updatedRows = rows.map((row) => row.id === updatePost.id ? result?.data : row);
+      const result = await axios.put(
+        `http://localhost:3000/posts/${updatePost.id}`,
+        updatePost
+      );
+      const updatedRows = rows.map((row) =>
+        row.id === updatePost.id ? result?.data : row
+      );
       setRows(updatedRows);
       setUpdateOpen(false);
     } catch (error) {

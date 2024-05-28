@@ -4,16 +4,20 @@ import { useNavigate } from 'react-router-dom';
 import { Container, TextField, Button, Typography, Box, Avatar } from '@mui/material';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import { TOKEN, USERNAME,PASSWORD } from '../utilities/constants';
+import { useAuthContext } from '../context/AuthContext';
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
 
+  const {setIsAuthenticated} = useAuthContext();
   const handleLogin = (event) => {
     event.preventDefault();
     if (email === USERNAME && password === PASSWORD) {
+      
       localStorage.setItem("token", TOKEN);
+      setIsAuthenticated(true);
       navigate('/home'); 
     }
   };

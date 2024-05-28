@@ -14,25 +14,25 @@ const AppRoutes = () => {
       {
         path: "/",
         element: (
-          //<RequiredAuth>
-          <Home />
-          //</RequiredAuth>
+          <RequiredAuth>
+            <Home />
+          </RequiredAuth>
         ),
       },
       {
         path: "/books",
         element: (
-          //<RequiredAuth>
-          <Books />
-          //</RequiredAuth>
+          <RequiredAuth>
+            <Books />
+          </RequiredAuth>
         ),
       },
       {
         path: "/books/:id",
         element: (
-          //<RequiredAuth>
-          <PostDetail />
-          //</RequiredAuth>
+          <RequiredAuth>
+            <PostDetail />
+          </RequiredAuth>
         ),
       },
       {
